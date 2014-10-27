@@ -17,7 +17,6 @@ $(document).ready(function() {
     });
 
     pairedTiles = _.shuffle(pairedTiles);
-    console.log(pairedTiles);
 
     var gameBoard = $('#game-board');
     var row = $(document.createElement('div'));
@@ -38,31 +37,53 @@ $(document).ready(function() {
     });
     gameBoard.append(row);
 
-    $('#game-board img').click(function () {
-        var img = $(this);
-        var tile = img.data('tile');
-        img.fadeOut(100, function() {
-            if(tile.clicked) {
-                img.attr('src', 'img/tile-back.png');
-            }
-            else {
-                img.attr('src', tile.src);
-            }
-            tile.clicked = !tile.clicked;
-            img.fadeIn(100);
-        }); //fade effects
-    }); //when Images are clicked
 
-    // I think i should put this in the click function
+    $('#startButton').click(function(complete) {
+        $('#startButton').hide();
+        var startTime = _.now();
+        var timer = window.setInterval(function () {
+            var elapsedSeconds = Math.floor((_.now() - startTime) / 1000);
+            $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds);
+            if (elapsedSeconds > 300) {
+                window.clearInterval(timer);
+                //then say they lost, takes too long.
+            }
+        }, 1000);
 
-    var startTime = _.now();
-    var timer = window.setInterval(function() {
-        var elapsedSeconds = Math.floor((_.now() - startTime)/ 1000);
-        $('#elapsedSeconds').text(elapsedSeconds);
-        if(elapsedSeconds >= 10) {
-            window.clearInterval(timer)
-        }
-    }, 1000);
+        var matchedPairs = 0;
+        var wrongPairs = 0;
+        var remainingPairs = 0;
+
+
+        $('#matches').text('Matched: ' + matchedPairs);
+        $('#mistakes').text('Mistakes: ' + wrongPairs);
+        $('#remaining').text('Remaining: ' + remainingPairs);
+
+
+        $('#game-board img').click(function () {
+            var img = $(this);
+            var tile = img.data('tile');
+            img.fadeOut(100, function() {
+                if(tile.clicked) {
+                    img.attr('src', 'img/tile-back.png');
+                }
+                else {
+                    img.attr('src', tile.src);
+                }
+                tile.clicked = !tile.clicked;
+                img.fadeIn(100);
+            }); //fade effects
+        }); //when Images are clicked
+    });
+
+
+    function findMatched() {
+
+    }
+
+
+
+
 
 
 });

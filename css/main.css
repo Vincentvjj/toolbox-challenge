@@ -1,6 +1,67 @@
-#game-board img {
-    width: 150px;
-    height: 150px;
-    margin-right: 5px;
 
+#game-board img {
+    width: 200px;
+    height: 200px;
+    margin-right: 5px;
+}
+
+#game-board {
+    text-align: center;
+}
+
+body {
+    background-color: gray;
+}
+
+#elapsedSeconds {
+    color: blue;
+    font-size: 30px;
+}
+
+#matches {
+    color: blue;
+    font-size: 30px;
+}
+
+#remaining {
+    color: blue;
+    font-size: 30px;
+}
+
+#mistakes {
+    color: blue;
+    font-size: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-size: 40px;
+}
+
+#startButtonHolder {
+    text-align: center;
+}
+
+#startButton {
+    font-size: 50px;
+    color: blue;
+}
+
+#resetButtonHolder {
+    text-align: center;
+}
+
+#resetButton {
+    margin-top: 50px;
+    color: red;
+    font-size: 30px;
+}
+#info {
+    margin-bottom: 30px;
+}
+
+#info p {
+    display:inline;
+    margin-right: 120px;
 }

@@ -7,13 +7,26 @@
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Memory!</h1>
-        <p id="elapsedSeconds"></p>
+        <h1>Test Your Memory!</h1>
+        <div id="startButtonHolder">
+            <button type="button" id="startButton">Let's Start!</button>
+        </div>
 
-        <div id="game-board">
+
+        <div id="info">
+            <p id="elapsedSeconds"></p>
+            <p id="matches"></p>
+            <p id="mistakes"></p>
+            <p id="remaining"></p>
 
         </div>
 
+
+        <div id="game-board"></div>
+
+        <div id="resetButtonHolder">
+            <button type="reset" id="resetButton">Start Over!</button>
+        </div>
 
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
