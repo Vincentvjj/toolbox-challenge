@@ -10,33 +10,33 @@
 }
 
 body {
-    background-color: gray;
+    background-image: url(../img/background.jpg);
 }
 
 #elapsedSeconds {
-    color: blue;
+    color: yellow;
     font-size: 30px;
 }
 
 #matches {
-    color: blue;
+    color: yellow;
     font-size: 30px;
 }
 
 #remaining {
-    color: blue;
+    color: yellow;
     font-size: 30px;
 }
 
 #mistakes {
-    color: blue;
+    color: yellow;
     font-size: 30px;
 }
 
 h1 {
     text-align: center;
-    color: black;
-    font-size: 40px;
+    color: orange;
+    font-size: 50px;
 }
 
 #startButtonHolder {
@@ -44,7 +44,7 @@ h1 {
 }
 
 #startButton {
-    font-size: 50px;
+    font-size: 30px;
     color: blue;
 }
 
@@ -58,10 +58,13 @@ h1 {
     font-size: 30px;
 }
 #info {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #info p {
     display:inline;
-    margin-right: 120px;
+    margin-right: 80px;
+    /*margin-right: 100px;*/
+
 }

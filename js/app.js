@@ -38,26 +38,26 @@ $(document).ready(function() {
     gameBoard.append(row);
 
 
-    $('#startButton').click(function(complete) {
+    $('#resetButton').hide()
+
+    $('#startButton').click(startFunction);
+
+
+    function startFunction() {
+        window.clearInterval(timer);
+        $('#resetButton').show()
         $('#startButton').hide();
         var startTime = _.now();
-        var timer = window.setInterval(function () {
+
+        timer = window.setInterval(function () {
             var elapsedSeconds = Math.floor((_.now() - startTime) / 1000);
-            $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds);
-            if (elapsedSeconds > 300) {
+            if (elapsedSeconds > 10) {
                 window.clearInterval(timer);
-                //then say they lost, takes too long.
             }
+            $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds);
+
+
         }, 1000);
-
-        var matchedPairs = 0;
-        var wrongPairs = 0;
-        var remainingPairs = 0;
-
-
-        $('#matches').text('Matched: ' + matchedPairs);
-        $('#mistakes').text('Mistakes: ' + wrongPairs);
-        $('#remaining').text('Remaining: ' + remainingPairs);
 
 
         $('#game-board img').click(function () {
@@ -74,16 +74,36 @@ $(document).ready(function() {
                 img.fadeIn(100);
             }); //fade effects
         }); //when Images are clicked
-    });
 
 
-    function findMatched() {
+
+        var matchedPairs = 0; // make these functions then return number of pairs
+        var wrongPairs = 0;
+        var remainingPairs = 0;
+
+
+        $('#matches').text('Matched: ' + matchedPairs);
+        $('#mistakes').text('Mistakes: ' + wrongPairs);
+        $('#remaining').text('Remaining: ' + remainingPairs);
 
     }
 
+    $('#resetButton').click(function() {
+        resetTiles();
+        startFunction();
 
+
+    }); //when reset button is clicked
 
 
 
 
 });
+
+function resetTiles() {
+    //HOW TO RESET THE TILE :(((
+    $('#game-board img').replaceWith('img/tile-back.png'); //YEAH IDK ABOUT THIS
+
+}
+
+var timer; //global variable to set the timer back to 0 again.
