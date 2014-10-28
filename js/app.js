@@ -72,63 +72,58 @@ $(document).ready(function() {
 
         }, 1000);
 
-        var count = 0;
+        var past;
 
         $('#game-board img').click(function() {
             var img = $(this);
             var tile = img.data('tile');
+            console.log(tile.clicked); // chck if it is clicked
             img.fadeIn(100, function() {
                 if(tile.clicked == false) {
                     img.attr('src', tile.src);
-                    count++;
 //                    tile.clicked = true;
                 }
 
             }); //fade effects
 
 
-            if(count > 1) {
+            if(!past) {
+                past = img;
+            }
 
-                if(keyToCheck == tile.src && tile.clicked == false){
+
+
+            //THIS NEEDS MORE DEBUGGING!
+            else if (past[0] != img[0]) {
+                console.log(tile.clicked);
+                if((past[0].src == img[0].src) && (tile.clicked == false)) { // NEED HELP IN THIS!
                     matchedPairs += 1;
                     $('#matches').text('Matched: ' + matchedPairs);
-                    count = 0;
-
                 } //match found
 
                 else {
-                    console.log('WRONG!');
-                    count = 0;
 
-                    var prev = attr('src', keyToCheck); //find input with this src!
+                    console.log('WRONG!');
+                    var prev = past;
+
                     prev.fadeOut(100, function() {
-                        img.attr('src', 'img/tile-back.png');
-//                        tile.clicked = false;
+                        prev.attr('src', 'img/tile-back.png');
+                        prev.clicked = false;
                     });
                     prev.fadeIn(100);
 
                     img.fadeOut(100, function() {
                         img.attr('src', 'img/tile-back.png');
-//                        tile.clicked = false;
+                        tile.clicked = false;
                     });
                     img.fadeIn(100);
 
-//
-//                        tile.clicked = false;
-//                    });
-//                    img.fadeIn(100);
                 } //wrong pair
 
-                //will put make it fliip back to initial!
-
-
+                past = null;
             }
 
-            else {
-                keyToCheck = tile.src;
-
-            }
-
+//
 
             tile.clicked = true;
 
