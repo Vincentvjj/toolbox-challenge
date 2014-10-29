@@ -93,10 +93,6 @@ function onClick() {
 
     $('#game-board img').click(function () {
 
-//        if (flipping == true) {
-//            alert();
-//        }
-
         var img = $(this);
         var tile = img.data('tile');
         img.fadeIn(100, function () {
@@ -116,6 +112,7 @@ function onClick() {
 
         //THIS NEEDS MORE DEBUGGING!
         else if (past[0] != img[0]) {
+
             var prev = past;
             var prevTile = prev.data('tile');
 
@@ -134,8 +131,9 @@ function onClick() {
 
             else {
 
+
+
                 setTimeout(function() {
-//                    flipping = true;
                     prev.fadeOut(100, function () {
                         prev.attr('src', 'img/tile-back.png');
                         prevTile.clicked = false;
@@ -147,10 +145,10 @@ function onClick() {
                         tile.clicked = false;
                     });
                     img.fadeIn(100);
-
+//                    $('#game-board img').off();
                 }, 1000);
 
-//                flipping = false;
+
                 wrongPairs++;
                 $('#mistakes').text('Mistakes: ' + wrongPairs);
 
@@ -158,6 +156,7 @@ function onClick() {
 
             $('#remaining').text('Remaining: ' + remainingPairs);
             past = null;
+//            $('#game-board img').on();
 
         }
 
@@ -165,7 +164,7 @@ function onClick() {
 }
 
 
-//var flipping = false;
+
 var matchedPairs = 0;
 var wrongPairs = 0;
 var remainingPairs = 8;
