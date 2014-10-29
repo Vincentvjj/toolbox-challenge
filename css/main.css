@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:700);
 
 #game-board img {
     width: 200px;
@@ -34,6 +36,7 @@ body {
 }
 
 h1 {
+    font-family: 'Droid Sans', sans-serif;
     text-align: center;
     color: orange;
     font-size: 50px;
@@ -46,6 +49,7 @@ h1 {
 #startButton {
     font-size: 30px;
     color: blue;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #resetButtonHolder {
@@ -53,10 +57,12 @@ h1 {
 }
 
 #resetButton {
+    font-family: 'Open Sans', sans-serif;
     margin-top: 50px;
-    color: red;
     font-size: 30px;
+
 }
+
 #info {
     margin-bottom: 20px;
     text-align: center;
@@ -65,8 +71,4 @@ h1 {
 #info p {
     display:inline;
     margin-right: 80px;
-}
-
-.nothing {
-    display: none;
 }
