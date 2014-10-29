@@ -1,7 +1,3 @@
-//TO DO: check line 114
-// add feedbacks or rules or instruction.
-// if users win? Give sort of a congratulation message, but still show the start over button.
-
 $(document).ready(startGame);
 function startGame() {
 
@@ -55,7 +51,7 @@ function startGame() {
     $('#resetButton').click(function () {
 
         $('#game-board').empty();
-
+        $('#game-board').hide();
         matchedPairs = 0;
         wrongPairs = 0;
         remainingPairs = 8;
@@ -73,7 +69,7 @@ function startGame() {
 
 
 function onClick() {
-
+    $('#game-board').fadeIn(300);
     $('#matches').text('Matched: ' + matchedPairs);
     $('#mistakes').text('Mistakes: ' + wrongPairs);
     $('#remaining').text('Remaining: ' + remainingPairs);
@@ -90,8 +86,13 @@ function onClick() {
     }, 1000);
 
     var past;
+    var resetting;
 
     $('#game-board img').click(function () {
+
+        if(resetting) {
+            return;
+        }
 
         var img = $(this);
         var tile = img.data('tile');
@@ -109,8 +110,6 @@ function onClick() {
         if (!past) {
             past = img;
         }
-
-        //THIS NEEDS MORE DEBUGGING!
         else if (past[0] != img[0]) {
 
             var prev = past;
@@ -128,24 +127,22 @@ function onClick() {
                 tile.matched = true;
 
             } //match found
-
             else {
 
-
-
+                resetting = true;
                 setTimeout(function() {
                     prev.fadeOut(100, function () {
                         prev.attr('src', 'img/tile-back.png');
                         prevTile.clicked = false;
+                        prev.fadeIn(100);
                     });
-                    prev.fadeIn(100);
 
                     img.fadeOut(100, function () {
                         img.attr('src', 'img/tile-back.png');
                         tile.clicked = false;
+                        img.fadeIn(100);
                     });
-                    img.fadeIn(100);
-//                    $('#game-board img').off();
+                    resetting = false;
                 }, 1000);
 
 
@@ -156,7 +153,7 @@ function onClick() {
 
             $('#remaining').text('Remaining: ' + remainingPairs);
             past = null;
-//            $('#game-board img').on();
+
 
         }
 

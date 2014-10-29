@@ -75,3 +75,7 @@ h1 {
     display:inline;
     margin-right: 80px;
 }
+
+#game-board {
+    display: none;
+}
