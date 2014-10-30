@@ -74,7 +74,7 @@ h1 {
 }
 
 #info p {
-    display:inline;
+    display: inline;
     margin-right: 80px;
 }
 
@@ -114,6 +114,7 @@ h2 {
 #win-screen p {
     text-align: center;
     color: yellow;
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 80px;
 }
+

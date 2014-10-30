@@ -132,7 +132,6 @@ function onClick() {
                     $('#resetButton').fadeIn(300);
 
 
-
                 }
                 prevTile.matched = true;
                 tile.matched = true;
