@@ -6,8 +6,25 @@
 
         <link rel="stylesheet" href="css/main.css"/>
     </head>
-    <body>
-        <h1><i>Test Your Memory!</i></h1>
+    <body id="background">
+        <header>
+            <h1><i>Test Your Memory!</i></h1>
+        </header>
+
+
+        <div id="instructions">
+            <div>
+                <h2>Objective Of The Game</h2>
+                <p>The object of the game is to collect all EIGHT matching pairs.</p>
+                <h2>Instructions</h2>
+                <p>Users can only flip up to two tiles at the same time. IF both flipped tile do not match, users
+                will be given one second to memorize the image behind the tile and its location. IF users got
+                a matching pair, the paired tiles will stay up until users start the game over. There is no time
+                limits as to clear the objective of the game.<br><br></p>
+                <p class ="start">LETS GIVE YOUR MEMORY A TEST! Click the button to start</p>
+            </div>
+
+        </div>
         <div id="startButtonHolder">
             <button type="button" id="startButton">Let's Start!</button>
         </div>
@@ -23,9 +40,16 @@
 
         <div id="game-board"></div>
 
-        <div id="resetButtonHolder">
-            <button type="reset" id="resetButton"><a href="#">Start Over!</a></button>
+        <div id="win-screen">
+            <p>YOU WON!!!</p>
+
+            <div id="resetButtonHolder">
+                <button type="reset" id="resetButton">Start Over!</button>
+            </div>
+
         </div>
+
+
 
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>

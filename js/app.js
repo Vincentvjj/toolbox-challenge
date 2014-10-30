@@ -44,12 +44,13 @@ function startGame() {
 
     gameBoard.append(row);
 
-    $('#resetButton').hide();
-
     $('#startButton').click(onClick);
 
     $('#resetButton').click(function () {
-
+        $('#win-screen').fadeOut(100);
+        $('#resetButton').fadeOut(100);
+        $('#game-board').css('opacity', '1');
+        $('#info').css('opacity', '1');
         $('#game-board').empty();
         $('#game-board').hide();
         matchedPairs = 0;
@@ -70,17 +71,18 @@ function startGame() {
 
 function onClick() {
     $('#game-board').fadeIn(300);
+    $('#instructions').hide();
+    $('#background').css('background-image', 'url(img/background.jpg)');
     $('#matches').text('Matched: ' + matchedPairs);
     $('#mistakes').text('Mistakes: ' + wrongPairs);
     $('#remaining').text('Remaining: ' + remainingPairs);
 
-    $('#resetButton').show();
     $('#startButton').hide();
     var startTime = _.now();
 
     timer = window.setInterval(function () {
         elapsedSeconds = Math.floor((_.now() - startTime) / 1000);
-        $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds);
+        $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds + 's');
 
 
     }, 1000);
@@ -122,6 +124,15 @@ function onClick() {
                 remainingPairs = 8 - matchedPairs;
                 if(remainingPairs == 0 || matchedPairs == 8) {
                     window.clearInterval(timer);
+
+                    $('#game-board').css('opacity', '0.4');
+                    $('#info').css('opacity', '0.4');
+
+                    $('#win-screen').fadeIn(300);
+                    $('#resetButton').fadeIn(300);
+
+
+
                 }
                 prevTile.matched = true;
                 tile.matched = true;

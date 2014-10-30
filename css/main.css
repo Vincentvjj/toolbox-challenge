@@ -16,7 +16,7 @@
 }
 
 body {
-    background-image: url(../img/background.jpg);
+    background-color: black;
 }
 
 #elapsedSeconds {
@@ -42,7 +42,7 @@ body {
 h1 {
     font-family: 'Droid Sans', sans-serif;
     text-align: center;
-    color: orange;
+    color: rosybrown;
     font-size: 50px;
 }
 
@@ -54,6 +54,7 @@ h1 {
     font-size: 30px;
     color: blue;
     font-family: 'Open Sans', sans-serif;
+
 }
 
 #resetButtonHolder {
@@ -62,8 +63,9 @@ h1 {
 
 #resetButton {
     font-family: 'Open Sans', sans-serif;
-    margin-top: 50px;
     font-size: 30px;
+    display: none;
+    color: blue;
 }
 
 #info {
@@ -78,4 +80,40 @@ h1 {
 
 #game-board {
     display: none;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    color: lightyellow;
+    text-align: center;
+}
+
+#instructions p{
+    color: antiquewhite;
+    font-size: 20px;
+    text-align: center;
+}
+
+.start {
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 40px;
+}
+
+#win-screen {
+    background-color: rgba(250,250,250,0.7);
+    display: none;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    padding-top: 400px;
+}
+
+#win-screen p {
+    text-align: center;
+    color: yellow;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 80px;
 }
