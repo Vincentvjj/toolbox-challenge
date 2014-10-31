@@ -131,6 +131,7 @@ function onClick() {
                     $('#win-screen').fadeIn(300);
                     $('#resetButton').fadeIn(300);
 
+                    $('#audio')[0].play();
 
                 }
                 prevTile.matched = true;

@@ -118,3 +118,22 @@ h2 {
     font-size: 80px;
 }
 
+
+@media (max-height: 1000px) {
+    #game-board img {
+        height: 150px;
+        width: 150px;
+    }
+
+    #win-screen p {
+        font-size: 60px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    #info {
+        font-size: 20px;
+    }
+}
