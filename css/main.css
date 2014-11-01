@@ -2,8 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:700);
 
 #game-board img {
-    width: 200px;
-    height: 200px;
     margin-right: 8px;
     margin-bottom: 5px;
     border-style: solid;
@@ -54,7 +52,6 @@ h1 {
     font-size: 30px;
     color: blue;
     font-family: 'Open Sans', sans-serif;
-
 }
 
 #resetButtonHolder {
@@ -108,21 +105,29 @@ h2 {
     right: 0%;
     left: 0%;
     bottom: 0%;
-    padding-top: 400px;
+    padding-top: 200px;
 }
 
 #win-screen p {
+    font-weight: 400;
     text-align: center;
     color: yellow;
     font-family: 'Open Sans', sans-serif;
-    font-size: 80px;
+    font-size: 100px;
 }
 
+#timeMsg {
+    font-size: 40px;
+    text-align: center;
+    color: yellow;
+    font-family: 'Droid Sans', sans-serif;
+    margin-bottom: 10px;
+}
 
 @media (max-height: 1000px) {
     #game-board img {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
     }
 
     #win-screen p {

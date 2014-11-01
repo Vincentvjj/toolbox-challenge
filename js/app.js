@@ -26,14 +26,20 @@ function startGame() {
     var gameBoard = $('#game-board');
 
     var row = $(document.createElement('div'));
+    row.css('width', '100%');
+
     var img;
 
     _.forEach(pairedTiles, function (tile, elemIndex) {
         if (elemIndex > 0 && 0 == elemIndex % 4) {
             gameBoard.append(row);
             row = $(document.createElement('div'));
+            row.css('width', '100%');
+
         }
         img = $(document.createElement('img'));
+        img.css('width', '10%');
+        img.css('height', '10%');
         img.attr({
             src: 'img/tile-back.png',
             alt: 'image of tile ' + tile.tileNum
@@ -127,6 +133,7 @@ function onClick() {
 
                     $('#game-board').css('opacity', '0.4');
                     $('#info').css('opacity', '0.4');
+                    $('#timeMsg').text('Elapsed Time: ' + elapsedSeconds + 's');
 
                     $('#win-screen').fadeIn(300);
                     $('#resetButton').fadeIn(300);
@@ -164,7 +171,6 @@ function onClick() {
 
             $('#remaining').text('Remaining: ' + remainingPairs);
             past = null;
-
 
         }
 
