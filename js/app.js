@@ -1,3 +1,9 @@
+/*
+Author: Vincent Jonany
+Date: 11/1/2014
+Description: memory game challenge info 343
+*/
+
 $(document).ready(startGame);
 function startGame() {
 
@@ -12,7 +18,6 @@ function startGame() {
     }
 
     var shuffledTiles = _.shuffle(tiles);
-
     var selectedTiles = shuffledTiles.slice(0, 8);
     var pairedTiles = [];
 
@@ -22,12 +27,9 @@ function startGame() {
     });
 
     pairedTiles = _.shuffle(pairedTiles);
-
     var gameBoard = $('#game-board');
-
     var row = $(document.createElement('div'));
     row.css('width', '100%');
-
     var img;
 
     _.forEach(pairedTiles, function (tile, elemIndex) {
@@ -59,6 +61,7 @@ function startGame() {
         $('#info').css('opacity', '1');
         $('#game-board').empty();
         $('#game-board').hide();
+
         matchedPairs = 0;
         wrongPairs = 0;
         remainingPairs = 8;
@@ -70,10 +73,8 @@ function startGame() {
         startGame();
         $('#resetButton').show();
         onClick();
-
     }); //when reset button is clicked
 }
-
 
 function onClick() {
     $('#game-board').fadeIn(300);
@@ -82,15 +83,13 @@ function onClick() {
     $('#matches').text('Matched: ' + matchedPairs);
     $('#mistakes').text('Mistakes: ' + wrongPairs);
     $('#remaining').text('Remaining: ' + remainingPairs);
-
     $('#startButton').hide();
+
     var startTime = _.now();
 
     timer = window.setInterval(function () {
         elapsedSeconds = Math.floor((_.now() - startTime) / 1000);
         $('#elapsedSeconds').text('Elapsed Time: ' + elapsedSeconds + 's');
-
-
     }, 1000);
 
     var past;
@@ -134,19 +133,15 @@ function onClick() {
                     $('#game-board').css('opacity', '0.4');
                     $('#info').css('opacity', '0.4');
                     $('#timeMsg').text('Elapsed Time: ' + elapsedSeconds + 's');
-
                     $('#win-screen').fadeIn(300);
                     $('#resetButton').fadeIn(300);
-
                     $('#audio')[0].play();
-
-                }
+                } //game won
                 prevTile.matched = true;
                 tile.matched = true;
-
             } //match found
-            else {
 
+            else {
                 resetting = true;
                 setTimeout(function() {
                     prev.fadeOut(100, function () {
@@ -163,21 +158,15 @@ function onClick() {
                     resetting = false;
                 }, 1000);
 
-
                 wrongPairs++;
                 $('#mistakes').text('Mistakes: ' + wrongPairs);
-
             } //wrong pair
 
             $('#remaining').text('Remaining: ' + remainingPairs);
             past = null;
-
         }
-
     }); //when Images are clicked
 }
-
-
 
 var matchedPairs = 0;
 var wrongPairs = 0;
