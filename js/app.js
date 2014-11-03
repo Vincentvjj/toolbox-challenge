@@ -4,6 +4,8 @@ Date: 11/1/2014
 Description: memory game challenge info 343
 */
 
+"use strict";
+
 $(document).ready(startGame);
 function startGame() {
 
