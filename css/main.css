@@ -125,6 +125,10 @@ h2 {
 }
 
 @media (max-height: 1000px) {
+    #info {
+        margin-bottom: 5px; 
+    }
+
     #game-board img {
         height: 100px;
         width: 100px;
